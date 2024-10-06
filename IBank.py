@@ -1,6 +1,4 @@
 """Класс для консольного приложения “I-Bank” для хранения денежных вкладов и манипуляций с ними."""
-from symtable import Class
-
 
 class Account:
     def __init__(self, name: str, passport: str, phone: str, start_balance: int = 0):
