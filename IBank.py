@@ -7,7 +7,7 @@ class Account:
         self.name = name
         self.passport = passport
         self.phone = phone
-        self.__balance = start_balance # TODO: закрываем прямой доступ к балансу
+        self.__balance = start_balance # закрываем прямой доступ к балансу
 
     def full_info(self) -> str:
         return f'имя: {self.name}, паспорт: {self.passport}, телефон: {self.phone}'
