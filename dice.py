@@ -28,6 +28,9 @@ class Dice:
         else:
             raise ValueError("Кубик не подброшен.")
 
+    def __repr__(self):
+        return self.__str__()
+
     def __lt__(self, other):
         return self.side < other.side
 
@@ -37,4 +40,11 @@ class Dice:
     def __eq__(self, other):
         return self.side == other.side
 
+
+
+dices = [Dice(), Dice(), Dice()]
+
+for i in dices:
+    i.roll()
+print(dices)
 
