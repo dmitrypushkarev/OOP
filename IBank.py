@@ -50,11 +50,25 @@ class Bank:
 
 
 bank1 = Bank()
-bank1.add_commission(4)
+bank1.add_commission(2)
 print(bank1.commission)
 client1 = Account('Александр', "1234 173723", "+7-985-727-36-47", 500)
 client2 = Account("Евгений", "2312 312323", "+7-916-212-42-09", 800)
-print(client1, client2)
-client1.transfer(client2, 200) 
-print(client1, client2)
+
+def test_deposit():
+    client1 = Account('Александр', "1234 173723", "+7-985-727-36-47", 500)
+    assert client1.balance == 500
+    client1.deposit(500)
+    assert client1.balance == 1000
+
+def test_transfer():
+    client1 = Account('Александр', "1234 173723", "+7-985-727-36-47", 500)
+    client2 = Account("Евгений", "2312 312323", "+7-916-212-42-09", 800)
+    assert client1.balance == 500
+    assert client2.balance == 800
+    client1.transfer(client2, 100)
+    assert client1.balance == 500 - 100 - 100 * bank1.commission / 100
+    assert client2.balance == 800 + 100
+
+
 
