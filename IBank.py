@@ -37,15 +37,15 @@ class Account:
             raise ValueError('Недостаточно средств!')
 
 class Bank:
-    def __init__(self, commission: float = 0):
+    def __init__(self, commission: int = 0):
         self.__commission = commission
 
-    def add_commission(self, other: float):
-        """Установка комиссии банка"""
+    def add_commission(self, other: int):
+        """Установка комиссии банка, только целые числа"""
         self.__commission += other
 
     @property
-    def commission(self) -> float:
+    def commission(self) -> int:
         return self.__commission
 
 
@@ -55,7 +55,6 @@ print(bank1.commission)
 client1 = Account('Александр', "1234 173723", "+7-985-727-36-47", 500)
 client2 = Account("Евгений", "2312 312323", "+7-916-212-42-09", 800)
 print(client1, client2)
-client1.transfer(client2, 200)
+client1.transfer(client2, 200) 
 print(client1, client2)
-client1.withdraw(100)
-print(client1, client2)
+
